@@ -39,8 +39,7 @@ cp .env-example .env
 Then, open the `.env` file and fill in the required values for your GitLab instance and Azure OpenAI credentials.
 
 * A GitLab personal access token with `api` scope.
-* The URL for the merge request comments.
-* The URL for the merge request diff.
+And other configs.
 
 ### Running the Review
 
