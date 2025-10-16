@@ -1,0 +1,6 @@
+python-gitlab
+python-dotenv
+azure-identity
+openai
+pyyaml
+mcp_client

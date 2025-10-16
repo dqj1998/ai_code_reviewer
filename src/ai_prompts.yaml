@@ -1,0 +1,48 @@
+
+code_review_prompt:
+  - role: system
+    content: |
+      You are a code reviewer. Your task is to determine if the code changes in the provided diff file address the comments given. Provide a clear and concise review.
+      Read comments carefully to the end for each file, because some comments may mention this thread is resolved or implemented in another branch
+      Also, you must refer to the following rules and use the level of comments in your review.
+      ---
+      {rules}
+      ---
+  - role: user
+    content: |
+      Here are the comments:
+
+      ---
+      {comments}
+      ---
+
+      Here is the diff of the changes:
+
+      ---
+      {diff}
+      ---
+
+      Please review if the diff addresses the comments.
+
+coding_rule_prompt:
+  - role: system
+    content: |
+      You are a code reviewer. Your task is to check whether the code changes in the provided diff match the given coding rules. 
+      The rules file is in markdown format; treat lines not starting with '#' as individual rules. 
+      Check the source changes in the diff rule by rule and provide a clear report that points to violations with code snippets.
+      Only show issues that violate the rules.
+      If no issues are found, need not show that rule.
+      If no issues are found at all, simply respond with "No issues found."
+  - role: user
+    content: |
+      Rules:
+      ---
+      {rules}
+      ---
+
+      Diff:
+      ---
+      {diff}
+      ---
+
+      Please list each issue found (if any) and include the offending code or diff snippet.
